@@ -1,0 +1,91 @@
+
+"""to move snake in the scree
+
+
+
+for _ in range(10):
+    all_snake.forward(10)
+    all_snake.penup()
+
+ison=True
+while ison:
+    for snake in all_snake:
+      screen.onkey(snake_forward, "space")
+      screen.onkey(snake_right, "r")
+      screen.onkey(snake_left, "l")
+
+
+
+
+def snake_forward():
+    for snake in all_snake:
+      snake.forward(10)
+      snake.penup()
+
+
+def snake_left():
+    for snake in all_snake:
+      snake.left(90)
+
+def snake_right():
+    for snake in all_snake:
+       snake.right(90)
+
+
+
+
+
+from turtledemo.penrose import start
+
+#screen.register_shape('rectangle',((-5,-20),(5,-20),(5,20),(-5,20)))
+
+screen=Screen()
+screen.setup(600,600)
+screen.bgcolor("black")
+screen.title("MY THE SNAKE GAME")
+screen.tracer(0)
+
+all_snake=[]
+all_positions=[(0,0),(-20,0),(-40,0)]
+for position in all_positions:
+    snake=Turtle(shape='square')
+    snake.penup()
+    snake.color("white")
+    snake.goto(position)
+    all_snake.append(snake)
+"""n a little bit"""
+#your_choice =screen.textinput("you want to start",prompt="YES/NO").lower()
+screen.listen()
+
+game_is_on=True
+while game_is_on:
+    screen.update()
+    time.sleep(0.1)
+    for segment_number in range(len(all_snake)-1,0,-1):
+        new_x=all_snake[segment_number -1].xcor()
+        new_y=all_snake[segment_number -1].ycor()
+        all_snake[segment_number].goto(new_x,new_y)
+    all_snake[0].forward(20)
+
+
+
+
+
+
+
+"""tape on keyboard to move in the screen"""
+
+
+
+
+screen.mainloop()
+
+
+
+
+
+
+
+
+
+
