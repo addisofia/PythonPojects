@@ -1,14 +1,18 @@
 from flask import Flask ,render_template,request
 import requests
 import smtplib
+import os
+from dotenv import load_dotenv
 
 
 
 
-MYEMAIL="sofiamath@gmail.com"
-MYPASSWORD="iegg dunv dntc oalq"
+load_dotenv()
 
-api_url="https://api.npoint.io/2f6685b5b0707eb36291"
+MYEMAIL=os.getenv("MYEMAIL")
+MYPASSWORD=os.getenv("MYPASSWORD")
+
+api_url="https://api.npoint.io/4a69316242ed018d4f92"
 posts=requests.get(api_url).json()
 
 app=Flask(__name__)
